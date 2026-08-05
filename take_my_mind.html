@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Take My Mind</title>
+    <link rel="icon" href="./IMAGENES/KOVA PAGINA.png" type="image/png">
+</head>
+
+<body>
+
+
+    <nav class="nav_animado">
+        <a href="index.html"><img src="./IMAGENES/KOVA PNG.png" alt=""></a>
+    </nav> 
+    
+    
+
+    <div class="imagen_inicio_take_my_mind" data-reveal>
+        <div class="fondo_inicio_take_my_mind">
+            <img src="./IMAGENES/PORTFOLIO/Take my mind/IMG 1.jpg" alt="">
+        </div>
+        <div class="titulo_inicio_take_my_mind" >
+            <img src="./IMAGENES/PORTFOLIO/Take My Mind titulo.png" alt="">
+        </div>
+    </div>
+        
+
+
+    <div class="descripcion_take_my_mind" >
+        <div class="descripcion_1_take_my_mind" data-reveal>
+            <h2>El videoclip de “Take My Mind” presenta una partida de ping pong cargada de tensión en el garaje de una casa común. Lo que comienza como un juego cotidiano se transforma en un duelo donde cada golpe, cada mirada y cada pausa construyen una atmósfera intensa. La cercanía entre los jugadores y el espacio reducido refuerzan esa sensación de encierro y competencia constante, acompañando el ritmo de la música.</h2>
+            <img src="./IMAGENES/PORTFOLIO/Take my mind/IMG 3.jpeg" alt="">
+        </div>
+        <div class="descripcion_2_take_my_mind" data-reveal>
+            <img src="./IMAGENES/PORTFOLIO/Take my mind/IMG 2.jpeg" alt="">
+            <h2>Desde lo técnico, la propuesta busca transmitir energía y dinamismo a través de cámara en mano, movimientos rápidos y encuadres cerrados que siguen la lógica del propio ping pong. La intención fue que la cámara no solo registre la acción, sino que la acompañe y la potencie, generando una experiencia inmersiva y rítmica. Se trabajó especialmente en la fluidez de los movimientos y en el montaje, buscando que cada plano dialogue con el pulso de la canción y refuerce la intensidad de la escena.</h2>
+        </div>
+    </div>
+
+
+
+    <div class="take_my_mind_video" onclick="loadVideo(this)" >
+        <img 
+            class="take_my_mind_thumbnail" 
+            src="https://img.youtube.com/vi/L6Mh4Vf3FH4/maxresdefault.jpg" 
+            alt="Video preview">
+        <div class="take_my_mind_video_boton"></div>
+    </div>
+
+
+    <script>
+    function loadVideo(element) {
+        element.innerHTML = `
+            <iframe 
+            width="100%" 
+            height="100%"
+            src="https://www.youtube.com/embed/L6Mh4Vf3FH4?autoplay=1&controls=1&rel=0"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen>
+            </iframe>
+        `;
+    }
+    </script>           
+
+    <script>
+        function reveal() {
+            const elements = document.querySelectorAll("[data-reveal]");
+
+            elements.forEach(el => {
+            const windowHeight = window.innerHeight;
+            const elementTop = el.getBoundingClientRect().top;
+            const visible = 50;
+
+            if (elementTop < windowHeight - visible) {
+                el.classList.add("active");
+            }
+            });
+        }
+
+        window.addEventListener("scroll", reveal);
+        reveal();
+    </script>
+
+</body>
+</html>

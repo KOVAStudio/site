@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Please Me</title>
+    <link rel="icon" href="./IMAGENES/KOVA PAGINA.png" type="image/png">
+</head>
+<body>
+
+    <nav class="nav_animado">
+        <a href="index.html"><img src="./IMAGENES/KOVA PNG.png" alt=""></a>
+    </nav> 
+    
+    
+
+    <div class="imagen_inicio_please_me" data-reveal>
+        <div class="carousel">
+
+            <button class="carousel_btn prev">&#10094;</button>
+
+            <div class="carousel_track">
+                <img src="./IMAGENES/PORTFOLIO/Please me/IMG1.jpg" class="carousel_img">
+                <img src="./IMAGENES/PORTFOLIO/Please me/IMG2.jpg" class="carousel_img">
+                <img src="./IMAGENES/PORTFOLIO/Please me/IMG3.jpg" class="carousel_img">
+                <img src="./IMAGENES/PORTFOLIO/Please me/IMG4.jpg" class="carousel_img">
+                <img src="./IMAGENES/PORTFOLIO/Please me/IMG5.jpg" class="carousel_img">
+                <img src="./IMAGENES/PORTFOLIO/Please me/IMG6.jpg" class="carousel_img">
+                <img src="./IMAGENES/PORTFOLIO/Please me/IMG7.jpg" class="carousel_img">
+                <img src="./IMAGENES/PORTFOLIO/Please me/IMG8.jpg" class="carousel_img">
+                <img src="./IMAGENES/PORTFOLIO/Please me/IMG9.jpg" class="carousel_img">
+            </div>
+
+            <button class="carousel_btn next">&#10095;</button>
+
+        </div>
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox_img" id="lightbox_img">
+    </div>
+        
+
+   
+        <div class="descripcion_please_me" >
+            <div class="descripcion_1_please_me" data-reveal>
+                <h2>El videoclip de “Please Me” de Maxi Trusso sigue el recorrido nocturno de dos personajes que se dirigen a una cita, construyendo un relato paralelo entre ambos trayectos. A medida que avanzan por la ciudad, la expectativa del encuentro va creciendo, pero en el camino de Leonardo irrumpe un hecho violento que altera por completo el curso de la historia. Este quiebre genera un fuerte contraste entre la ilusión inicial y la tensión que se instala progresivamente, dejando la sensación de un encuentro que nunca llega a concretarse y cargando al relato de incertidumbre.</h2>
+                <img src="./IMAGENES/PORTFOLIO/Please me/IMG10.jpg" alt="">
+            </div>
+            <div class="descripcion_2_please_me" data-reveal>
+                <img src="./IMAGENES/PORTFOLIO/Please me/IMG11.jpg" alt="">
+                <h2>Desde lo visual, la propuesta se centra en capturar el clima nocturno de la ciudad de Buenos Aires, utilizando sus luces y espacios urbanos para construir una atmósfera intensa y realista. El uso de cámara en mano refuerza la sensación de inmediatez y cercanía, haciendo que el espectador acompañe a los personajes en su recorrido, mientras que los movimientos rápidos y los encuadres dinámicos siguen el pulso de la canción, trasladando su energía a la imagen. El montaje y la fluidez de los planos buscan que cada momento dialogue con el ritmo musical, potenciando tanto la narrativa como la experiencia inmersiva del videoclip.</h2>
+            </div>
+        </div>
+
+
+   
+        <div class="please_me_video" onclick="loadVideo(this)" >
+            <img 
+                class="please_me_thumbnail" 
+                src="https://img.youtube.com/vi/bj57IZyaItM/maxresdefault.jpg" 
+                alt="Video preview"
+            >
+            <div class="please_me_video_boton"></div>
+        </div>
+
+
+        <script>
+        function loadVideo(element) {
+            element.innerHTML = `
+                <iframe 
+                width="100%" 
+                height="100%"
+                src="https://www.youtube.com/embed/bj57IZyaItM?autoplay=1&controls=1&rel=0"
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen>
+                </iframe>
+            `;
+        }
+        </script>
+
+
+        <script>
+            const track = document.querySelector(".carousel_track");
+            const images = document.querySelectorAll(".carousel_img");
+            const nextBtn = document.querySelector(".next");
+            const prevBtn = document.querySelector(".prev");
+
+            let index = 0;
+
+            function updateCarousel() {
+                track.style.transform = `translateX(-${index * 100}%)`;
+            }
+
+            nextBtn.addEventListener("click", () => {
+                index = (index + 1) % images.length;
+                updateCarousel();
+            });
+
+            prevBtn.addEventListener("click", () => {
+                index = (index - 1 + images.length) % images.length;
+                updateCarousel();
+            });
+
+            /* ===== LIGHTBOX ===== */
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox_img");
+            const closeBtn = document.querySelector(".close");
+
+            images.forEach(img => {
+                img.addEventListener("click", () => {
+                    lightbox.classList.add("active");
+                    lightboxImg.src = img.src;
+                });
+            });
+
+            closeBtn.addEventListener("click", () => {
+                lightbox.classList.remove("active");
+            });
+
+            lightbox.addEventListener("click", (e) => {
+                if (e.target !== lightboxImg) {
+                    lightbox.classList.remove("active");
+                }
+            });
+        </script>
+
+    <script>
+        function reveal() {
+            const elements = document.querySelectorAll("[data-reveal]");
+
+            elements.forEach(el => {
+            const windowHeight = window.innerHeight;
+            const elementTop = el.getBoundingClientRect().top;
+            const visible = 50;
+
+            if (elementTop < windowHeight - visible) {
+                el.classList.add("active");
+            }
+            });
+        }
+
+        window.addEventListener("scroll", reveal);
+        reveal();
+    </script>
+</body>
+</html>

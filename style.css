@@ -1,0 +1,1241 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #f7f0ea;
+  font-family: sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+
+  animation: grainMove 1.5s steps(2) infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes grainMove {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(-1px, 1px); }
+  50%  { transform: translate(1px, -1px); }
+  75%  { transform: translate(-1px, -1px); }
+  100% { transform: translate(0, 0); }
+}
+
+
+@font-face {
+  font-family: "Akira";
+  src: url(./FONTS/akira_expanded/Akira\ Expanded\ Demo.otf);
+}
+
+@font-face {
+  font-family: "Neuwelt";
+  src: url("./FONTS/Neuwelt-Bold.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body h1{
+  font-family: "Akira";
+}
+
+body h2{
+  font-family: "Neuwelt";
+  color: rgb(0, 0, 0);
+}
+
+
+html, body {
+  overflow-x: auto;
+  max-width: auto;
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s ease;
+}
+
+[data-reveal].active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/*__________________________________________________________________________________________NAV__________________________________________________________________________________________________*/
+.nav_animado_1 {
+  position: sticky;
+  top: 0;
+
+  height: auto;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 40px;
+
+  background: linear-gradient(
+    270deg,
+    #1f92d4,
+    #004C5C,
+    #F23F09,
+    #dd227f,
+    #004C5C
+  );
+  background-size: 800% 800%;
+  animation: gradienteNav 18s ease infinite;
+
+  transition: height 0.4s ease;
+  z-index: 1000;
+}
+
+.nav_animado {
+  height: 80px; /* ajustá según tu nav */
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 0px;
+  padding: 0 40px;
+  background: linear-gradient(
+    270deg,
+    #1f92d4,
+    #004C5C,
+    #F23F09,
+    #dd227f,
+    #004C5C
+  );
+  background-size: 800% 800%;
+  animation: gradienteNav 18s ease infinite;
+}
+
+
+@keyframes gradienteNav {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+nav img{
+    width: 180px;
+}
+
+.nav_animado_1 img {
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
+}
+
+.nav_animado img {
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
+}
+
+/*__________________________________________________________________________________________NOSOTROS_____________________________________________________________________________________________*/
+
+
+.nosotros {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding: 0 5rem;
+  margin-top: 4rem;
+}
+
+.nosotros img{
+    width: 220px;
+}
+
+.nosotros h1 {
+    font-size: 100px;
+    color: #F23F09;
+}
+
+.nosotros h2 {
+  font-size: 30px;
+}
+
+
+/*__________________________________________________________________________________________PORTFOLIO____________________________________________________________________________________________*/
+.trabajos {
+  text-align: center;
+}
+
+.trabajos img {
+  border-radius: 50px;
+}
+
+.trabajos h1 {
+  font-size: 100px;
+  color: #F23F09;;
+}
+
+.trabajos_fila_1 {
+  padding: 0 5rem;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.trabajos_fila_2 {
+  padding: 0 5rem;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 3rem;
+}
+
+
+/* CONTENEDOR */
+.prueba_1 {
+  position: relative;
+  width: 600px; /* importante: mismo ancho que el fondo */
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+/* IMAGEN DE FONDO */
+.prueba_1_fondo {
+  width: 100%;
+  display: block;
+  transition: filter 0.4s ease;
+}
+
+/* IMAGEN DE ARRIBA */
+.prueba_1_titulo {
+  position: absolute;
+  top: 50%;
+  left: 50%; /* 👈 ESTO FALTABA */
+  transform: translate(-50%, -50%);
+  width: 550px;
+}
+
+/* EFECTO HOVER */
+.prueba_1:hover {
+  transform: scale(1.05);
+}
+
+.prueba_1:hover .prueba_1_fondo {
+  filter: grayscale(100%);
+}
+
+/* CONTENEDOR */
+.prueba_2 {
+  position: relative;
+  width: 600px; /* importante: mismo ancho que el fondo */
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+/* IMAGEN DE FONDO */
+.prueba_2_fondo {
+  width: 100%;
+  display: block;
+  transition: filter 0.4s ease;
+}
+
+/* IMAGEN DE ARRIBA */
+.prueba_2_titulo {
+  position: absolute;
+  top: 50%;
+  left: 50%; /* 👈 ESTO FALTABA */
+  transform: translate(-50%, -50%);
+  width: 550px;
+}
+
+/* EFECTO HOVER */
+.prueba_2:hover {
+  transform: scale(1.05);
+}
+
+.prueba_2:hover .prueba_2_fondo {
+  filter: grayscale(100%);
+}
+
+/* CONTENEDOR */
+.prueba_3 {
+  position: relative;
+  width: 600px; /* importante: mismo ancho que el fondo */
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+/* IMAGEN DE FONDO */
+.prueba_3_fondo {
+  width: 100%;
+  display: block;
+  transition: filter 0.4s ease;
+}
+
+/* IMAGEN DE ARRIBA */
+.prueba_3_titulo {
+  position: absolute;
+  top: 50%;
+  left: 50%; /* 👈 ESTO FALTABA */
+  transform: translate(-50%, -50%);
+  width: 550px;
+}
+
+/* EFECTO HOVER */
+.prueba_3:hover {
+  transform: scale(1.05);
+}
+
+.prueba_3:hover .prueba_3_fondo {
+  filter: grayscale(100%);
+}
+
+
+/* CONTENEDOR */
+.prueba_4 {
+  position: relative;
+  width: 600px; /* importante: mismo ancho que el fondo */
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+/* IMAGEN DE FONDO */
+.prueba_4_fondo {
+  width: 100%;
+  display: block;
+  transition: filter 0.4s ease;
+}
+
+/* IMAGEN DE ARRIBA */
+.prueba_4_titulo {
+  position: absolute;
+  top: 50%;
+  left: 50%; /* 👈 ESTO FALTABA */
+  transform: translate(-50%, -50%);
+  width: 300px;
+}
+
+/* EFECTO HOVER */
+.prueba_4:hover {
+  transform: scale(1.05);
+}
+
+.prueba_4:hover .prueba_4_fondo {
+  filter: grayscale(100%);
+}
+
+
+/* CONTENEDOR */
+.prueba_5 {
+  position: relative;
+  width: 600px; /* importante: mismo ancho que el fondo */
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+/* IMAGEN DE FONDO */
+.prueba_5_fondo {
+  width: 100%;
+  display: block;
+  transition: filter 0.4s ease;
+}
+
+/* IMAGEN DE ARRIBA */
+.prueba_5_titulo {
+  position: absolute;
+  top: 50%;
+  left: 50%; /* 👈 ESTO FALTABA */
+  transform: translate(-50%, -50%);
+  width: 300px;
+}
+
+/* EFECTO HOVER */
+.prueba_5:hover {
+  transform: scale(1.05);
+}
+
+.prueba_5:hover .prueba_5_fondo {
+  filter: grayscale(100%);
+}
+
+/* CONTENEDOR */
+.prueba_6 {
+  position: relative;
+  width: 600px; /* importante: mismo ancho que el fondo */
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+/* IMAGEN DE FONDO */
+.prueba_6_fondo {
+  width: 100%;
+  display: block;
+  transition: filter 0.4s ease;
+}
+
+/* IMAGEN DE ARRIBA */
+.prueba_6_titulo {
+  position: absolute;
+  top: 50%;
+  left: 50%; /* 👈 ESTO FALTABA */
+  transform: translate(-50%, -50%);
+  width: 300px;
+}
+
+/* EFECTO HOVER */
+.prueba_6:hover {
+  transform: scale(1.05);
+}
+
+.prueba_6:hover .prueba_6_fondo {
+  filter: grayscale(100%);
+}
+
+
+/*__________________________________________________________________________________________OFRECEMOS____________________________________________________________________________________________*/
+
+
+.servicios {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 0 5rem;
+    margin-top: 10rem;
+}
+
+.servicios h1{
+  font-size: 100px;
+  color: #F23F09;
+}
+
+.servicios h2{
+  font-size: 30px;
+}
+
+.servicios img{
+  width: 220px;
+}
+
+.videoclips_venta {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding: 0 5rem;
+  margin-top: 5rem;
+}
+
+.videoclips_venta h1{
+  font-size: 60px;
+}
+
+.cortometrajes_venta {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding: 0 5rem;
+  margin-top: 10rem;
+}
+
+.cortometrajes_venta h1{
+  font-size: 60px;
+}
+
+.publicidad_venta {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding: 0 5rem;
+  margin-top: 10rem;
+}
+
+.publicidad_venta h1{
+  font-size: 60px;
+}
+
+.otros_venta {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding: 0 5rem;
+  margin-top: 10rem;
+}
+
+.otros_venta h1{
+  font-size: 60px;
+}
+
+
+/*__________________________________________________________________________________________CONTACTOS____________________________________________________________________________________________*/
+
+
+.redes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8rem;
+  gap: 300px;
+  margin-bottom: 4rem;
+}
+
+.redes img {
+  width: 80px;
+  transition: transform 0.3s ease; /* animación suave */
+  cursor: pointer; /* opcional, indica que es interactivo */
+}
+
+.redes img:hover {
+  transform: scale(1.2); /* agranda la imagen */
+}
+
+
+
+/*==============================================================================================CELULAR==========================================================================================*/
+
+
+@media (max-width: 768px) {
+
+  /* -------- FONDO -------- */
+  body::after {
+    animation: none;
+    opacity: 0.025;
+  }
+
+  /* -------- NAV -------- */
+  .nav_animado {
+    height: 64px;
+    padding: 0 16px;
+  }
+
+  nav img {
+    width: 140px;
+  }
+
+  /* -------- INICIO -------- */
+  .inicio {
+    margin-top: 12rem;
+    margin-bottom: 12rem;
+  }
+
+  /* -------- NOSOTROS -------- */
+  .nosotros {
+    flex-direction: column;
+    margin: 0;
+    padding: 2.5rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .nosotros h1 {
+    font-size: 48px;
+  }
+
+  .nosotros h2 {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .nosotros img {
+    width: 140px;
+  }
+
+  /* -------- PORTFOLIO -------- */
+  .trabajos h1 {
+    font-size: 48px;
+  }
+
+  .trabajos_fila_1,
+  .trabajos_fila_2 {
+    flex-direction: column;
+    margin: 0;
+    gap: 2rem;
+  }
+
+  .prueba_1,
+  .prueba_2,
+  .prueba_3,
+  .prueba_4,
+  .prueba_5,
+  .prueba_6 {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .prueba_1_titulo,
+  .prueba_2_titulo,
+  .prueba_3_titulo,
+  .prueba_4_titulo,
+  .prueba_5_titulo,
+  .prueba_6_titulo {
+    width: 220px;
+  }
+
+  .trabajos_fila_1,
+  .trabajos_fila_2 {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* separación ENTRE imágenes */
+  }
+
+    .trabajos_fila_1 {
+    margin-bottom: 2rem;
+  }
+
+  /* -------- SERVICIOS -------- */
+  .servicios,
+  .videoclips_venta,
+  .cortometrajes_venta,
+  .publicidad_venta,
+  .otros_venta {
+    flex-direction: column;
+    margin: 0;
+    padding: 2.5rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .servicios h1 {
+    font-size: 35px;
+  }
+
+  .servicios h2 {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .videoclips_venta h1,
+  .cortometrajes_venta h1,
+  .publicidad_venta h1,
+  .otros_venta h1 {
+    font-size: 25px;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .servicios img {
+    width: 140px;
+  }
+
+  /* -------- REDES -------- */
+  .redes {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  .redes img {
+    width: 60px;
+  }
+
+  .nosotros img,
+  .servicios img,
+  .videoclips_venta img,
+  .cortometrajes_venta img,
+  .publicidad_venta img,
+  .otros_venta img {
+    display: none;
+  }
+
+  .nosotros h1::after,
+  .servicios h1::after,
+  .videoclips_venta h1::after,
+  .cortometrajes_venta h1::after,
+  .publicidad_venta h1::after,
+  .otros_venta h1::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 2px;
+    background-color: #1f92d4;
+    margin: 1rem auto;
+  }
+
+    .videoclips_venta h1,
+  .cortometrajes_venta h1,
+  .publicidad_venta h1,
+  .otros_venta h1 {
+    order: 1;
+  }
+
+  .videoclips_venta img,
+  .cortometrajes_venta img,
+  .publicidad_venta img,
+  .otros_venta img {
+    order: 2;
+  }
+
+  .videoclips_venta h2,
+  .cortometrajes_venta h2,
+  .publicidad_venta h2,
+  .otros_venta h2 {
+    order: 3;
+  }
+
+  
+
+}
+
+
+/*==============================================================================================TAKE MY MIND==========================================================================================*/
+
+
+.take_my_mind_video {
+  position: relative;
+  width: 100%;
+  height: 60rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.take_my_mind_thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.take_my_mind_video_boton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.take_my_mind_video_boton::before {
+  content: "";
+  position: absolute;
+  left: 32px;
+  top: 22px;
+  border-style: solid;
+  border-width: 18px 0 18px 28px;
+  border-color: transparent transparent transparent white;
+}
+
+.imagen_inicio_take_my_mind {
+  position: relative;
+}
+
+.fondo_inicio_take_my_mind img {
+  width: 100%;
+  display: block;
+}
+
+.titulo_inicio_take_my_mind {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.descripcion_take_my_mind {
+  margin: 5rem;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 60px; /* separación entre bloques */
+}
+
+.descripcion_take_my_mind h2 {
+  font-size: 30px;
+}
+
+.descripcion_1_take_my_mind,
+.descripcion_2_take_my_mind {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.descripcion_1_take_my_mind h2,
+.descripcion_2_take_my_mind h2 {
+  flex: 1;
+}
+
+.descripcion_1_take_my_mind img,
+.descripcion_2_take_my_mind img {
+  width: 1000px;
+  height: auto;
+  border-radius: 50px;
+}
+
+/* ========================= */
+/* 📱 MOBILE (hasta 768px) */
+/* ========================= */
+@media (max-width: 768px) {
+
+  /* NAV */
+  .nav_animado img {
+    width: 120px;
+  }
+
+  /* IMAGEN INICIO */
+  .titulo_inicio_take_my_mind img {
+    width: 80%;
+  }
+
+  /* DESCRIPCIÓN */
+  .descripcion_take_my_mind {
+    margin: 2rem 1rem;
+    gap: 40px;
+  }
+
+  .descripcion_take_my_mind h2 {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .descripcion_1_take_my_mind,
+  .descripcion_2_take_my_mind {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .descripcion_1_take_my_mind img,
+  .descripcion_2_take_my_mind img {
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  /* VIDEO */
+  .take_my_mind_video {
+    height: 250px; /* mucho más chico para celular */
+  }
+
+  .take_my_mind_video_boton {
+    width: 60px;
+    height: 60px;
+  }
+
+  .take_my_mind_video_boton::before {
+    left: 24px;
+    top: 18px;
+    border-width: 14px 0 14px 22px;
+  }
+}
+
+
+/* ========================= */
+/* 📲 TABLET (769px - 1024px) */
+/* ========================= */
+@media (max-width: 1024px) {
+
+  .descripcion_take_my_mind {
+    margin: 3rem;
+  }
+
+  .descripcion_take_my_mind h2 {
+    font-size: 22px;
+  }
+
+  .descripcion_1_take_my_mind img,
+  .descripcion_2_take_my_mind img {
+    width: 100%;
+  }
+
+  .take_my_mind_video {
+    height: 400px;
+  }
+}
+
+
+/*==============================================================================================PLEASE ME==========================================================================================*/
+
+
+.please_me_video {
+  position: relative;
+  width: 100%;
+  height: 60rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.please_me_thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.please_me_video_boton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.please_me_video_boton::before {
+  content: "";
+  position: absolute;
+  left: 32px;
+  top: 22px;
+  border-style: solid;
+  border-width: 18px 0 18px 28px;
+  border-color: transparent transparent transparent white;
+}
+
+.imagen_inicio_please_me {
+  position: relative;
+}
+
+.fondo_inicio_please_me img {
+  width: 100%;
+  display: block;
+}
+
+.titulo_inicio_please_me {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.titulo_inicio_please_me img {
+  width: 70rem;
+}
+
+.descripcion_please_me {
+  margin: 5rem;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 60px; /* separación entre bloques */
+}
+
+.descripcion_please_me h2 {
+  font-size: 30px;
+}
+
+.descripcion_1_please_me,
+.descripcion_2_please_me {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.descripcion_1_please_me h2,
+.descripcion_2_please_me h2 {
+  flex: 1;
+}
+
+.descripcion_1_please_me img,
+.descripcion_2_please_me img {
+  width: 1000px;
+  height: auto;
+  border-radius: 50px;
+}
+
+/* ===== CARRUSEL ===== */
+.carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel_track {
+  display: flex;
+  transition: transform 0.5s ease; /* animación suave */
+}
+
+.carousel_img {
+  min-width: 100%;
+  height: 100%;
+  object-fit: contain; /* 👈 clave */
+  background: black; /* opcional, relleno */
+}
+
+/* BOTONES */
+.carousel_btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  width: 50px;
+  height: 50px;
+  
+  display: flex;
+  align-items: center;     /* 👈 centra vertical */
+  justify-content: center; /* 👈 centra horizontal */
+
+  background: rgba(0,0,0,0.4);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 28px;
+  line-height: 1; /* 👈 importante para centrar el símbolo */
+
+  cursor: pointer;
+  z-index: 10;
+
+  transition: transform 0.25s ease, background 0.25s ease;
+
+  padding: 0; /* ❌ sacamos el padding */
+}
+
+.carousel_btn:hover {
+  transform: translateY(-50%) scale(1.2); /* 👈 se agranda */
+  background: rgba(0,0,0,0.7); /* opcional: más visible */
+}
+
+.carousel_btn.prev {
+  left: 20px;
+}
+
+.carousel_btn.next {
+  right: 20px;
+}
+
+/* ===== LIGHTBOX ===== */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 20px;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+/* CRUZ */
+.close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+
+  /* TEXTOS */
+  .descripcion_please_me {
+    margin: 2rem;
+    gap: 30px;
+  }
+
+  .descripcion_please_me h2 {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  /* BLOQUES → vertical */
+  .descripcion_1_please_me,
+  .descripcion_2_please_me {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* IMÁGENES */
+  .descripcion_1_please_me img,
+  .descripcion_2_please_me img {
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  /* VIDEO */
+  .please_me_video {
+    height: 250px;
+  }
+
+  /* BOTÓN VIDEO */
+  .please_me_video_boton {
+    width: 50px;
+    height: 50px;
+  }
+
+  .please_me_video_boton::before {
+    left: 18px;
+    top: 14px;
+    border-width: 12px 0 12px 18px;
+  }
+
+  /* CARRUSEL BOTONES */
+  .carousel_btn {
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+  }
+
+}
+
+
+
+/*===============================================================================A TUS PIES====================================================================================*/
+
+
+.a_tus_pies_video {
+  position: relative;
+  width: 100%;
+  height: 60rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.a_tus_pies_thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.a_tus_pies_video_boton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.a_tus_pies_video_boton::before {
+  content: "";
+  position: absolute;
+  left: 32px;
+  top: 22px;
+  border-style: solid;
+  border-width: 18px 0 18px 28px;
+  border-color: transparent transparent transparent white;
+}
+
+.imagen_inicio_a_tus_pies {
+  position: relative;
+}
+
+.fondo_inicio_a_tus_pies img {
+  width: 100%;
+  display: block;
+}
+
+.titulo_inicio_a_tus_pies {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.titulo_inicio_a_tus_pies img {
+  width: 70rem;
+}
+
+.descripcion_a_tus_pies {
+  margin: 5rem;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 60px; /* separación entre bloques */
+}
+
+.descripcion_a_tus_pies h2 {
+  font-size: 30px;
+}
+
+.descripcion_1_a_tus_pies,
+.descripcion_2_a_tus_pies {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.descripcion_1_a_tus_pies h2,
+.descripcion_2_a_tus_pies h2 {
+  flex: 1;
+}
+
+.descripcion_1_a_tus_pies img,
+.descripcion_2_a_tus_pies img {
+  width: 1000px;
+  height: auto;
+  border-radius: 50px;
+}
+
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+
+  /* TEXTOS */
+  .descripcion_a_tus_pies {
+    margin: 2rem;
+    gap: 30px;
+  }
+
+  .descripcion_a_tus_pies h2 {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  /* BLOQUES → vertical */
+  .descripcion_1_a_tus_pies,
+  .descripcion_2_a_tus_pies {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* IMÁGENES */
+  .descripcion_1_a_tus_pies img,
+  .descripcion_2_a_tus_pies img {
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  /* VIDEO */
+  .a_tus_pies_video {
+    height: 250px;
+  }
+
+  /* BOTÓN VIDEO */
+  .a_tus_pies_video_boton {
+    width: 50px;
+    height: 50px;
+  }
+
+  .a_tus_pies_video_boton::before {
+    left: 18px;
+    top: 14px;
+    border-width: 12px 0 12px 18px;
+  }
+
+  /* CARRUSEL BOTONES */
+  .carousel_btn {
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+  }
+
+}
